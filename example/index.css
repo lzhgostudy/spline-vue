@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+#app {
+  height: 100%;
+}
+
+.buttons {
+  position: fixed;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+}

@@ -1,32 +1,75 @@
 {
   "name": "spline-vue",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "type": "module",
+  "packageManager": "npm@6.14.15",
+  "files": [
+    "lib/*",
+    "scripts/*"
+  ],
+  "types": "./lib/Spline.vue.d.ts",
+  "exports": {
+    "./v2": "./lib/v2/spline-vue.js",
+    "./v3": "./lib/v3/spline-vue.js"
+  },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite --host",
+    "dev:3": "npm run switch:3 && vite --force",
+    "dev:2": "npm run switch:2 && vite",
+    "switch:2": "npx vue-demi-switch 2 vue2",
+    "switch:3": "npx vue-demi-switch 3 vue3",
+    "build:3": "npm run switch:3 && vue-tsc --noEmit && vite build",
+    "build:2": "npm run switch:2 && vue-tsc --noEmit && vite build",
+    "build": "rimraf lib && npm run build:2 && npm run build:3 && npm run build-types",
+    "build-types": "vue-tsc --declaration --emitDeclarationOnly --outDir lib/",
+    "typecheck": "vue-tsc --noEmit",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build",
+    "pub": "npm publish --access=public"
+  },
+  "peerDependencies": {
+    "@splinetool/runtime": "*",
+    "@vue/composition-api": "^1.7.0",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^2.6.14",
-    "vue-class-component": "^7.2.3",
-    "vue-property-decorator": "^9.1.2"
+    "@vue/composition-api": "^1.7.0",
+    "@splinetool/runtime": "^0.9.106",
+    "vue-demi": "latest"
   },
   "devDependencies": {
+    "@babel/types": "^7.19.0",
+    "@types/animejs": "^3.1.5",
+    "@types/node": "^18.7.18",
+    "@types/webpack-env": "^1.18.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-typescript": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "@vitejs/plugin-vue2": "^2.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
-    "eslint": "^7.32.0",
+    "animejs": "^3.2.1",
+    "core-js": "^3.25.1",
+    "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.0.3",
+    "eslint-plugin-vue": "^9.5.1",
     "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
     "typescript": "~4.5.5",
-    "vue-template-compiler": "^2.6.14"
+    "vite": "^3.1.2",
+    "vite-plugin-vue2": "^2.0.2",
+    "vue": "2.6.14",
+    "vue-class-component": "^7.2.6",
+    "vue-eslint-parser": "^9.1.0",
+    "vue-property-decorator": "^9.1.2",
+    "vue-template-compiler": "2.6.14",
+    "vue-tsc": "^0.40.13",
+    "vue2": "npm:vue@2.6.14",
+    "vue3": "npm:vue@^3.2.36"
   }
 }

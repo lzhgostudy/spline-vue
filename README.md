@@ -40,7 +40,7 @@ To use **spline-vue**, first you have to go to the Spline editor, click on the *
 
 You can copy the URL and pass it to the `<Spline />` component in Vue:
 
-**### **For Vue2:**
+**For Vue2:**
 
 ```js
 import Spline from "spline-vue/v2";

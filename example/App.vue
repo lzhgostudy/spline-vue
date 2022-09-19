@@ -4,6 +4,7 @@
       <button type="button" @click="() => moveSpe('x')">Move in x axis</button>
       <button type="button" @click="() => moveSpe('y')">Move in y axis</button>
       <button type="button" @click="() => moveSpe('z')">Move in z axis</button>
+      <button type="button" @click="triggerAnimation">Trigger Spline Animation</button>
     </div>
     <Spline :scene="scene" :onLoad="onLoad" />
   </div>
@@ -22,13 +23,15 @@ export default defineComponent({
     const scene = ref(
       "https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
     );
-    const spe = ref<SPEObject>();
+    const cube = ref<SPEObject>();
+    const spe = ref<Application>();
+
     const moveSpe = (direction: "x" | "y" | "z") => {
-      if (!spe.value) {
+      if (!cube.value) {
         return;
       }
 
-      const newPosition = { ...spe.value.position };
+      const newPosition = { ...cube.value.position };
       switch (direction) {
         case "x":
           newPosition.x += 100;
@@ -42,19 +45,31 @@ export default defineComponent({
       }
 
       anime({
-        targets: spe.value.position,
+        targets: cube.value.position,
         ...newPosition,
         duration: 500,
       });
     };
+
     const onLoad = (spline: Application) => {
-      spe.value = spline.findObjectByName("Cube");
+      spe.value = spline;
+      cube.value = spline.findObjectByName("Cube");
     };
+
+    const triggerAnimation = () => {
+      spe.value?.emitEvent("mouseHover", "Cube");
+      /**
+       * Or you can query the spline object first, and then trigger the event:
+       * 
+       * cube.value?.emitEvent("mouseHover");
+       */
+    }
 
     return {
       scene,
       moveSpe,
       onLoad,
+      triggerAnimation,
     };
   },
 });

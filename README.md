@@ -9,6 +9,8 @@
 [Community](https://discord.gg/M9hNDMqvnw) &mdash;
 [Documentation](https://docs.spline.design/)
 
+[Example for Vue2 Online](https://codesandbox.io/p/github/lzhgostudy/spline-vue2-example/draft/purple-sea?selection=%5B%7B%22endColumn%22%3A5%2C%22endLineNumber%22%3A9%2C%22startColumn%22%3A5%2C%22startLineNumber%22%3A9%7D%5D&file=%2Fsrc%2FApp.vue&workspace=%257B%2522activeFileId%2522%253A%2522cl8ldsmvh0007loih0lrw2ty6%2522%252C%2522openFiles%2522%253A%255B%2522%252Fsrc%252FApp.vue%2522%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522serve%2522%252C%2522port%2522%253A8080%252C%2522key%2522%253A%2522cl8le3vxc00wi3b6mzzp2129t%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522serve%2522%252C%2522key%2522%253A%2522cl8le0w7o00bj3b6mb9tq330x%2522%252C%2522isMinimized%2522%253Atrue%257D%255D%257D)
+
 ## Table of Contents
 
 - [spline-vue](#spline-vue)

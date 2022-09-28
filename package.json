@@ -1,7 +1,12 @@
 {
   "name": "spline-vue",
-  "version": "0.1.2",
-  "keywords": ["vue", "spline", "3D", "UI Design"],
+  "version": "0.1.3",
+  "keywords": [
+    "vue",
+    "spline",
+    "3D",
+    "UI Design"
+  ],
   "description": "Vue2/Vue3 component for Spline scenes.",
   "repository": {
     "type": "git",
@@ -20,8 +25,8 @@
   },
   "scripts": {
     "dev": "vite --host",
-    "dev:3": "npm run switch:3 && vite --force",
-    "dev:2": "npm run switch:2 && vite",
+    "dev:3": "npm run switch:3 && vite --force --host",
+    "dev:2": "npm run switch:2 && vite --host",
     "switch:2": "npx vue-demi-switch 2 vue2",
     "switch:3": "npx vue-demi-switch 3 vue3",
     "build:3": "npm run switch:3 && vue-tsc --noEmit && vite build",
